@@ -1,7 +1,9 @@
 # Traditional-Convolutional-Neural-Networks
  Traditional Convolutional Neural Networks
-
+ICCDA2021- 
 An Alternative Practice of Tropical Convolution to Traditional Convolutional Neural Networks
+
+
 ---------------------------------------------------------------------------------------------------------------------------
 https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 的实现代码；
