@@ -308,34 +308,21 @@ def net3(opt):
 # MinP_Min + MaxP_Max
 def net4(opt):
     model = nn.Sequential(
-        # expand_channels(opt.channels, opt.expand_channels),
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride),
-        tropical_max_max_conv(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride),
-        # tropical_min_min_conv(4, 4, kernel_size=opt.kernel, stride=1),
-        # tropical_max_max_conv(4, 4, kernel_size=opt.kernel, stride=1),
-        # tropical_min_max_conv(4, 4, kernel_size=opt.kernel, stride=1),
+        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride, padding=1),
+        tropical_max_max_conv(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         nn.Flatten(),
-        # nn.Linear(576, 7)
         nn.Linear(196,10)
-        # nn.Linear(opt.k3, 10),
     )
-    # summary(model, (opt.channels,48,48))
+    summary(model, (opt.channels,opt.image_height,opt.image_width))
     return model
 
 # MinP_Min + Conv
 def net5(opt):
     model = nn.Sequential(
-        # expand_channels(opt.channels, opt.expand_channels),
-        
-        # nn.ReLU(),
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride),
+        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
-        # tropical_min_min_conv(opt.k2, 4, kernel_size=opt.kernel, stride=1),
-        # nn.Conv2d(4, 4, kernel_size=opt.kernel, stride=1, padding=1),
         nn.Flatten(),
-        nn.Linear(576, 7),
-        # nn.Linear(144, 10),
-        # nn.Linear(16, 10)
+        nn.Linear(196, 10),
     )
     summary(model, (opt.channels,opt.image_height,opt.image_width))
     return model
@@ -343,17 +330,14 @@ def net5(opt):
 # MinP_Max + Conv
 def net6(opt):
     model = nn.Sequential(
-        expand_channels(opt.channels, opt.expand_channels*4),
-        tropical_min_max_conv(opt.expand_channels*4, opt.k1, kernel_size=opt.kernel, stride=1),
+        tropical_min_max_conv(opt.expand_channels*4, opt.k1, kernel_size=opt.kernel, stride=1,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride,padding=1),
-        # tropical_min_max_conv(4, 4, kernel_size=opt.kernel, stride=1),
-        nn.Conv2d(4, 4, kernel_size=opt.kernel, stride=2, padding=1),
         nn.Flatten(),
-        # nn.Linear(576, 7),
         nn.Linear(196, 10),
     )
     summary(model, (opt.channels,opt.image_height,opt.image_width))
     return model
+
 
 
 '''
