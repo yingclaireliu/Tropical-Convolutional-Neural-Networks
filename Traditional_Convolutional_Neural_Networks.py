@@ -308,7 +308,7 @@ def net3(opt):
 # MinP_Min + MaxP_Max
 def net4(opt):
     model = nn.Sequential(
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride, padding=1),
+        tropical_min_min_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         tropical_max_max_conv(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         nn.Flatten(),
         nn.Linear(196,10)
@@ -319,7 +319,7 @@ def net4(opt):
 # MinP_Min + Conv
 def net5(opt):
     model = nn.Sequential(
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
+        tropical_min_min_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         nn.Flatten(),
         nn.Linear(196, 10),
@@ -330,7 +330,7 @@ def net5(opt):
 # MinP_Max + Conv
 def net6(opt):
     model = nn.Sequential(
-        tropical_min_max_conv(opt.expand_channels*4, opt.k1, kernel_size=opt.kernel, stride=1,padding=1),
+        tropical_min_max_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=1,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Flatten(),
         nn.Linear(196, 10),
