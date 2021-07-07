@@ -208,7 +208,7 @@ class tropical_min_min_conv(nn.Module):
         X_col = torch.nn.functional.unfold(x.view(1, -1, h_x, w_x), h_filter, dilation=1, padding=self.padding, stride=self.stride).view(n_x, d_filter, -1, h_out*w_out)
         X_col = X_col.permute(1,2,3,0).contiguous().view(X_col.size(1),X_col.size(2),-1)
         W_col = self.weight.view(n_filters, d_filter, -1)
-        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).min(2).values).min(1)
+        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).min(2).values).min(1).values
         result = (result.view(n_filters, h_out, w_out, n_x)).permute(3, 0, 1, 2).contiguous()
 
         return result
@@ -244,7 +244,7 @@ class tropical_max_max_conv(nn.Module):
         X_col = torch.nn.functional.unfold(x.view(1, -1, h_x, w_x), h_filter, dilation=1, padding=self.padding, stride=self.stride).view(n_x, d_filter, -1, h_out*w_out)
         X_col = X_col.permute(1,2,3,0).contiguous().view(X_col.size(1),X_col.size(2),-1)
         W_col = self.weight.view(n_filters, d_filter, -1)
-        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).max(2).values).max(1)
+        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).max(2).values).max(1).values
         result = (result.view(n_filters, h_out, w_out, n_x)).permute(3, 0, 1, 2).contiguous()
 
         return result
