@@ -4,43 +4,12 @@ Traditional Convolutional Neural Networks ICCDA2021-An Alternative Practice of T
 
 Operating environment
 -----------------------------------------------------------------------------------------------------------------------------------------------
-python 3.6.5 + pytorch 1.7.0； // import numpy as np
+python 3.6.5 + pytorch 1.7.0；
 
-import torch
 
-from torch import optim, nn
-
-from torch.nn import init
-
-import torch.nn.functional as F
-
-from torch.utils.data import TensorDataset, DataLoader
-
-from torch.utils.tensorboard import SummaryWriter
-
-from torch.autograd import Variable
-
-from torch.nn.parameter import Parameter
-
-from torchsummary import summary
-
-from torchvision import transforms, datasets
-
-from sklearn.metrics import accuracy_score
-
-from matplotlib import pyplot as plt
-
-from optparse import OptionParser
-
-from matplotlib import pyplot
-
-from collections import OrderedDict
-
-import warnings warnings.filterwarnings('ignore')
-
-Set parm:
+Set parameters:
 -----------------------------------------------------------------------------------------------------------------------------------------------
-You can refer to options_func to set your parm，and you should add your own path of your dataset in the code.
+You can refer to options_func to set your parameters，and you should add your own path of your dataset in the code.
 Running case ： python .\Traditional_Convolutional_Neural_Networks.py --net net0
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
