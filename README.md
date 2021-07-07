@@ -15,7 +15,7 @@ pytorch 1.7.0
 
 ## 运行示例
 
-python .\Traditional_Convolutional_Neural_Networks.py --net net0
+python .\Tropical_Convolutional_Neural_Networks.py --net net0
 
 ## 代码中包括
 
