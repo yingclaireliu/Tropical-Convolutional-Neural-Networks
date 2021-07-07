@@ -23,7 +23,7 @@ import sys
 import os
 import math
 import gzip
-# 使用cpu、gpu
+# 使用cpu gpu
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 # writer = SummaryWriter() #定义writer,使用默认路径
