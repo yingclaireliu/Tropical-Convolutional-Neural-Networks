@@ -7,41 +7,6 @@ https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 
 python 3.6.5 + pytorch 1.7.0；
 //
-import numpy as np
-
-import torch
-
-from torch import optim, nn
-
-from torch.nn import init
-
-import torch.nn.functional as F
-
-from torch.utils.data import TensorDataset, DataLoader
-
-from torch.utils.tensorboard import SummaryWriter
-
-from torch.autograd import Variable
-
-from torch.nn.parameter import Parameter
-
-from torchsummary import summary
-
-from torchvision import transforms, datasets
-
-from sklearn.metrics import accuracy_score
-
-from matplotlib import pyplot as plt
-
-from optparse import OptionParser
-
-from matplotlib import pyplot
-
-from collections import OrderedDict
-
-import warnings
-warnings.filterwarnings('ignore')
-
 
 ---------------------------------------------------------------------------------------------------------------------------
 运行参数设置：
