@@ -1,7 +1,8 @@
 # Tropical-Convolutional-Neural-Networks
 TCNN-An Alternative Practice of Tropical Convolution to Traditional Convolutional Neural Networks
-https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
----------------------------------------------------------------------------------------------------------------------------
+
+Paper：https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
+
 ## 运行环境
 
 python 3.6.5
@@ -31,8 +32,6 @@ python .\Traditional_Convolutional_Neural_Networks.py --net net0
  MinPlus-Min-Conv Layer (MinP-Min)
 
  MaxPlus-Max-Conv Layer (MaxP-Max)
-
- 详见论文。
 
 - 6种网络结构
 
