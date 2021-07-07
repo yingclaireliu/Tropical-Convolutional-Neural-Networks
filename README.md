@@ -3,23 +3,25 @@ TCNN-An Alternative Practice of Tropical Convolution to Traditional Convolutiona
 
 Paper：https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 
-## 运行环境
+## Requirement
 
 python 3.6.5
 pytorch 1.7.0
 
 
-## 运行参数设置
+## Parameter Setting
 
-运行参数参考options_func，并注意在load_data中需要添加你需要的数据集及其存放的位置。
+Operation parameter reference the function "options_func()", and note that in "load_data()" needs to add the data set you need and its storage location.
 
-## 运行示例
+运行参数参考options_func()，并注意在load_data()中需要添加你需要的数据集及其存放的位置。
 
-python .\Tropical_Convolutional_Neural_Networks.py --net net0
+## Running Example
 
-## 代码中包括
+python .\Traditional_Convolutional_Neural_Networks.py --net net0
 
-- 6种tropical convolution layers
+## Code contains content
+
+- 6 tropical convolution layers
 
  MinPlus-Sum_Conv Layer (MinP-S)
 
@@ -33,8 +35,6 @@ python .\Tropical_Convolutional_Neural_Networks.py --net net0
 
  MaxPlus-Max-Conv Layer (MaxP-Max)
 
-- 6种网络结构
+- 6 network structures
 
- 详见论文。
-
-
+See the paper for details.
