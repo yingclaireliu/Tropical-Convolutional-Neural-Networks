@@ -3,13 +3,13 @@ TCNN-An Alternative Practice of Tropical Convolution to Traditional Convolutiona
 
 Paper：https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 
-## Requirement
+## 运行环境
 
 python 3.6.5
 pytorch 1.7.0
 
 
-## Parameter Setting
+## 参数设置
 
 Operation parameter reference the function "options_func()", and note that in "load_data()" needs to add the data set you need and its storage location.
 
@@ -63,11 +63,11 @@ Options:
     
 并注意在load_data()中需要添加你需要的数据集及其存放的位置。
 
-## Running Example
+## 运行示例
 
-python .\Traditional_Convolutional_Neural_Networks.py --net net0
+python .\TCNN.py --net net0
 
-## Code contains content
+## 代码包括
 
 - 6 tropical convolution layers
 
