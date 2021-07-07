@@ -6,7 +6,7 @@ An Alternative Practice of Tropical Convolution to Traditional Convolutional Neu
 https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 
 
-Operating environment
+Requirement
 -----------------------------------------------------------------------------------------------------------------------------------------------
 python 3.6.5 + pytorch 1.7.0；
 
@@ -65,7 +65,7 @@ Options:
 and you should add your own path of your dataset in the code.
 
 
-Running case ： python .\Tropical_Convolutional_Neural_Networks.py --net net0
+Running case ： python .\TCNN_en.py --net net0
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
