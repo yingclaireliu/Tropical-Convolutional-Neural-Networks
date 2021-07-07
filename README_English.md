@@ -1,4 +1,4 @@
-Traditional-Convolutional-Neural-Networks
+Tropical-Convolutional-Neural-Networks
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Traditional Convolutional Neural Networks ICCDA2021-An Alternative Practice of Tropical Convolution to Traditional Convolutional Neural Networks https://ui.adsabs.harvard.edu/abs/2021arXiv210302096F/abstract
 
@@ -10,7 +10,7 @@ python 3.6.5 + pytorch 1.7.0；
 Set parameters:
 -----------------------------------------------------------------------------------------------------------------------------------------------
 You can refer to options_func to set your parameters，and you should add your own path of your dataset in the code.
-Running case ： python .\Traditional_Convolutional_Neural_Networks.py --net net0
+Running case ： python .\Tropical_Convolutional_Neural_Networks.py --net net0
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
