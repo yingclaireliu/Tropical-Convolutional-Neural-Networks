@@ -208,7 +208,7 @@ class tropical_min_min_conv(nn.Module):
         X_col = torch.nn.functional.unfold(x.view(1, -1, h_x, w_x), h_filter, dilation=1, padding=self.padding, stride=self.stride).view(n_x, d_filter, -1, h_out*w_out)
         X_col = X_col.permute(1,2,3,0).contiguous().view(X_col.size(1),X_col.size(2),-1)
         W_col = self.weight.view(n_filters, d_filter, -1)
-        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).min(2).values).min(1)
+        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).min(2).values).min(1).values
         result = (result.view(n_filters, h_out, w_out, n_x)).permute(3, 0, 1, 2).contiguous()
 
         return result
@@ -245,7 +245,7 @@ class tropical_max_max_conv(nn.Module):
         X_col = torch.nn.functional.unfold(x.view(1, -1, h_x, w_x), h_filter, dilation=1, padding=self.padding, stride=self.stride).view(n_x, d_filter, -1, h_out*w_out)
         X_col = X_col.permute(1,2,3,0).contiguous().view(X_col.size(1),X_col.size(2),-1)
         W_col = self.weight.view(n_filters, d_filter, -1)
-        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).max(2).values).max(1)
+        result = ((W_col.unsqueeze(3)+X_col.unsqueeze(0)).max(2).values).max(1).values
         result = (result.view(n_filters, h_out, w_out, n_x)).permute(3, 0, 1, 2).contiguous()
 
         return result
@@ -309,7 +309,7 @@ def net3(opt):
 # MinP_Min + MaxP_Max
 def net4(opt):
     model = nn.Sequential(
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride, padding=1),
+        tropical_min_min_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         tropical_max_max_conv(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         nn.Flatten(),
         nn.Linear(196,10)
@@ -320,7 +320,7 @@ def net4(opt):
 # MinP_Min + Conv
 def net5(opt):
     model = nn.Sequential(
-        tropical_min_min_conv(opt.expand_channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
+        tropical_min_min_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride, padding=1),
         nn.Flatten(),
         nn.Linear(196, 10),
@@ -331,14 +331,13 @@ def net5(opt):
 # MinP_Max + Conv
 def net6(opt):
     model = nn.Sequential(
-        tropical_min_max_conv(opt.expand_channels*4, opt.k1, kernel_size=opt.kernel, stride=1,padding=1),
+        tropical_min_max_conv(opt.channels, opt.k1, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Conv2d(opt.k1, opt.k2, kernel_size=opt.kernel, stride=opt.stride,padding=1),
         nn.Flatten(),
         nn.Linear(196, 10),
     )
     summary(model, (opt.channels,opt.image_height,opt.image_width))
     return model
-
 
 '''
 The following are functions for loading data, training functions, and saving results 
